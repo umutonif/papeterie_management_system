@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <style>
+        body {
+            background-image: url('https://apei-asso.com/wp-content/uploads/2023/10/V100.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header h3 {
+            margin: 0;
+            color: #fff;
+        }
+
+        .logo img {
+            height: 30px;
+            width: auto;
+            vertical-align: middle;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin-top: 60px; /* Adjusted margin to accommodate the fixed navbar */
+        }
+
+        .error-message {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .error-message h1 {
+            font-size: 32px;
+            color: #ff0000;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: blue;
+        }
+
+        .home {
+            color: blue;
+            font-size: 20;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li class="logo"><img src="https://img.freepik.com/vecteurs-libre/conception-modele-logo-magasin-papeterie_23-2149881289.jpg" alt="Logo"></li>
+            <li><h3>Papeterie Stock</h3></li>
+        </ul>
+    </nav>
+</header>
+<div class="container">
+    <div class="error-message">
+        <h1>We're sorry for the error...</h1>
+        <!-- You can add more content or customize this section as needed -->
+    </div>
+</div>
+</body>
+</html>

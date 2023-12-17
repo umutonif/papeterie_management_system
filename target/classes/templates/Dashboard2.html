@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Job Portal Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a th:href="@{/Dashboard}">Home</a></li>
+            <li><a th:href="@{/papeteries/list}">Available Job</a></li>
+            <li><a th:href="@{/Manager/show}"  >Register new User</a></li>
+            <li><a th:href="@{/papeteries/showFormForAdd}" sec:authorize="hasRole('ROLE_VENDOR')">Add Papeterie</a></li>
+            <li><div class="logout"><a th:href="@{/showMyLoginPage}">Logout</a></div></li>
+            <li> <div sec:authorize="hasRole('ROLE_OPERATIONS_MANAGER')">
+                <a th:href="@{/Manager/listUsers}"> <button type="submit"
+                           class="text-white btn btn-primary btn-lg btn-block btn-bold">List All Users</button></a>
+            </div></li>
+            <li class="logo"><img src="/css/rwanda.png" alt="Logo"></li>
+        </ul>
+    </nav>
+</header>
+<div class="background-image"></div>
+<div class="centered-text">
+    <h1>RWANDA JOB SEEKING PORTAL</h1>
+</div>
+<div class="gif-container">
+    <img src="/css/giphy.gif" alt="Job Available GIF">
+</div>
+<!-- Rest of the content -->
+</body>
+</html>

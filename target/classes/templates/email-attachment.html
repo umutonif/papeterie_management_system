@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Attachment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://apei-asso.com/wp-content/uploads/2023/10/V100.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header h3 {
+            margin: 0;
+            color: #fff;
+        }
+
+        .logo img {
+            height: 30px;
+            width: auto;
+            vertical-align: middle;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 50px;
+            text-align: center;
+            margin-top: 60px; /* Adjusted margin to accommodate the fixed navbar */
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: blue;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        input[type="submit"] {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+
+        .home {
+            color: blue;
+            font-size: 20px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li class="logo"><img src="https://img.freepik.com/vecteurs-libre/conception-modele-logo-magasin-papeterie_23-2149881289.jpg" alt="Logo"></li>
+            <li><h3>Papeterie Stock</h3></li>
+            <li>
+                <div class="home">
+                    <a th:href="@{/Dashboard}">Home</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="form-container">
+    <h2>Email</h2>
+    <form action="" th:action="@{/email/sendEmailWithAttachment}" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required="" placeholder="Name">
+        <label for="email">Recipient Email:</label>
+        <input type="email" name="mailTo" id="email" required="" placeholder="Recipient Email" th:value="${mailTo}">
+
+
+        <label for="subject">Subject:</label>
+        <input type="text" name="subject" id="subject" required="" placeholder="Subject">
+        <label for="attachFile">Upload Your Receipt:</label>
+        <input type="file" name="attachFile" id="attachFile"  placeholder="Select File">
+        <label for="message">Message:</label>
+        <textarea name="message" id="message" required="" placeholder="Message.."></textarea>
+        <input type="submit" value="Send">
+        <div class="home">
+            <a th:href="@{/Dashboard}">Home</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

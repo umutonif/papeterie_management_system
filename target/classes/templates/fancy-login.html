@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Login Page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Reference Bootstrap files -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<!-- Custom CSS -->
+	<style>
+        body {
+            background-image: url('https://apei-asso.com/wp-content/uploads/2023/10/V100.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header h3 {
+            margin: 0;
+            color: #fff;
+        }
+
+        .logo img {
+            height: 30px;
+            width: auto;
+            vertical-align: middle;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin-top: 60px; /* Adjusted margin to accommodate the fixed navbar */
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: grey;
+            color: #fff;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card-body,
+        .card-footer {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input.form-control {
+            border-radius: 5px;
+        }
+
+        button.btn-primary {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button.btn-primary:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+	<nav>
+		<ul>
+			<li class="logo"><img
+					src="https://img.freepik.com/vecteurs-libre/conception-modele-logo-magasin-papeterie_23-2149881289.jpg"
+					alt="Logo"></li>
+			<li>
+				<h3>Papeterie Stock</h3>
+			</li>
+		</ul>
+	</nav>
+</header>
+
+<div class="container">
+
+	<div class="card col-md-6">
+
+		<div class="card-header">
+			<h5 class="card-title">Sign In</h5>
+		</div>
+
+		<div class="card-body">
+
+			<!-- Login Form -->
+			<form th:action="@{/authenticateTheUser}" method="POST">
+
+				<!-- Place for messages: error, alert, etc. -->
+				<div th:if="${param.error}" class="alert alert-danger">
+					Invalid username and password.
+				</div>
+
+				<div th:if="${param.logout}" class="alert alert-success">
+					You have been logged out.
+				</div>
+
+				<!-- Username -->
+				<div class="form-group">
+					<label for="username">Email</label>
+					<input type="text" id="username" name="username" class="form-control" placeholder="Email"
+						   required>
+				</div>
+
+				<!-- Password -->
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password" id="password" name="password" class="form-control"
+						   placeholder="Password" required>
+				</div>
+
+				<!-- Login/Submit Button -->
+				<div class="form-group">
+					<button type="submit" class="btn btn-secondary">Login</button>
+				</div>
+
+			</form>
+			<div class="text-center mt-2">
+				<a th:href="@{/Manager/loadForgotPassword}" class="text-decoration-none fs-5">Forget Password</a>
+			</div>
+
+		</div>
+
+		<div class="card-footer">
+			<a th:href="@{/Manager/show}" class="btn btn-secondary">Register New User</a>
+		</div>
+
+	</div>
+
+</div>
+
+</body>
+
+</html>
