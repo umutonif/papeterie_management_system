@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <title>Modern Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Set a background image for the page */
+        .page-container {
+
+            background-image: url('https://e0.pxfuel.com/wallpapers/765/237/desktop-wallpaper-back-to-school.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Style the navbar */
+        .navbar {
+            background: rgba(0, 0, 0, 0.7);
+            /* Transparent background */
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .logo img {
+            max-width: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Style the form container */
+        .form-container {
+            background: rgba(0, 0, 0, 0.5);
+            /* Transparent background */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 10%;
+            max-height: 70vh; /* Set a maximum height for the scrollable area */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
+        .transparent-form {
+            background: rgba(255, 255, 255, 0.1);
+            /* Transparent background for the form */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #fff;
+        }
+
+        label {
+            color: #fff;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+<div class="page-container">
+    <header class="navbar">
+        <div class="logo">
+            <img th:src="@{https://img.freepik.com/vecteurs-libre/conception-modele-logo-magasin-papeterie_23-2149881289.jpg}" alt="Logo" width="50" height="50">
+        </div>
+        <nav>
+            <ul>
+                <li><a th:href="@{/Dashboard}">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="form-container transparent-form">
+        <form action="#" th:action="@{/papeteries/save}" th:object="${papeterie}" method="post"
+              enctype="multipart/form-data">
+            <h1>Papeterie</h1>
+            <input type="hidden" th:field="*{id}">
+            <!--        <input type="hidden" name="userId" th:value="${userId}">-->
+            <input type="hidden" name="AuthId" th:value="${AuthId ?: 1}" />
+
+            <label for="name">Item Name</label>
+            <input type="text" id="name" name="name" th:field="*{name}" placeholder="Enter Item Name"
+                   class="form-control" required />
+            <br><br>
+
+            <label for="description">Descripition</label>
+            <input type="text" id="description" name="description" th:field="*{description}"
+                   placeholder="Enter Description" class="form-control" required />
+            <br><br>
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price" th:field="*{price}" placeholder="Enter Price"
+                   class="form-control" required />
+            <br><br>
+            <label for="quantity">Quantity </label>
+            <input type="number" id="quantity" name="quantity" th:field="*{quantity}" placeholder="Enter Quantity"
+                   class="form-control" required />
+
+            <br><br>
+            <label for="purchaseDate">Purchase Date</label>
+            <input type="date" id="purchaseDate" name="purchaseDate" th:field="*{purchaseDate}" class="form-control"
+                   required />
+
+            <br><br>
+            <label for="category">Category</label>
+            <select name="category" id="category" th:field="*{category}" required class="form-control">
+                <option value="">Select Category</option>
+                <option value="Writing Instruments">Writing Instruments</option>
+                <option value="Paper Products">Paper Products</option>
+                <option value="Office Tools">Office Tools</option>
+                <option value="Technology and Accessories">Technology and Accessories</option>
+                <option value="Printing and Binding">Printing and Binding</option>
+                <option value="Labels and Stickers">Labels and Stickers</option>
+            </select>
+
+            <br><br>
+
+            <label for="report">Specifications</label>
+            <input type="file" id="report" name="report" accept="application/pdf" required />
+            <br><br>
+
+            <label>Upload Item Image</label>
+            <input type="file" name="pic" id="pic" accept=".jpg,.jpeg,.png">
+
+            <br><br>
+            <button type="submit" name="action">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

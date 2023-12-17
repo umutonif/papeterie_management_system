@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Papeterie Management System</title>
+	<link rel="stylesheet" th:href="@{/css/signup.css}" />
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+	<div class="container">
+		<a th:href="@{/Dashboard}" class="logo">Home</a>
+	</div>
+</nav>
+
+<!-- Main Content -->
+<div class="container">
+	<div class="form-container">
+		<form th:action="@{/Manager/processForm}" th:object="${user}" method="post" >
+			<h2>Registration</h2>
+			<div class="form-group">
+				<input type="text" id="firstName" placeholder="First Name" required th:field="*{firstName}">
+				<label for="firstName"><i class="fas fa-user"></i></label>
+			</div>
+			<div class="form-group">
+				<input type="text" id="lastName" placeholder="Last Name" required th:field="*{lastName}">
+				<label for="lastName"><i class="fas fa-user"></i></label>
+			</div>
+			<div class="form-group">
+				<input type="text" id="username" placeholder="Username" required th:field="*{username}">
+				<label for="username"><i class="fas fa-user"></i></label>
+			</div>
+			<div class="form-group">
+				<select id="formRole" required th:field="*{formRole}">
+					<option value="" disabled selected>Select Role</option>
+					<option value="" selected>Select Role</option>
+					<option value="ROLE_BUYER">Buyer</option>
+					<option value="ROLE_VENDOR">Vendor</option>
+					<option value="ROLE_OPERATIONS_MANAGER">Operations Manager</option>
+				</select>
+				<label for="formRole"><i class="fas fa-user-shield"></i></label>
+			</div>
+			<div class="form-group">
+				<input type="email" id="email" placeholder="Email" required th:field="*{email}">
+				<label for="email"><i class="fas fa-envelope"></i></label>
+			</div>
+			<div class="form-group">
+				<input type="tel" id="phoneNumber" placeholder="Phone Number" required th:field="*{phoneNumber}">
+				<label for="phoneNumber"><i class="fas fa-phone"></i></label>
+			</div>
+			<div class="form-group">
+				<input type="password" th:field="*{password}"class="form-control"
+					   placeholder="Password" id="password" name="password">
+				<label for="password"><i class="fas fa-lock"></i></label>
+			</div>
+			<button type="submit">Register</button>
+		</form>
+	</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Success Message</title>
+    <style>
+        body {
+            background-image: url('https://apei-asso.com/wp-content/uploads/2023/10/V100.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header h3 {
+            margin: 0;
+            color: #fff;
+        }
+
+        .logo img {
+            height: 30px;
+            width: auto;
+            vertical-align: middle;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 60px; /* Adjusted margin to accommodate the fixed navbar */
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: blue;
+        }
+
+        .home {
+            color: blue;
+            font-size: 20;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li class="logo"><img src="https://img.freepik.com/vecteurs-libre/conception-modele-logo-magasin-papeterie_23-2149881289.jpg" alt="Logo"></li>
+            <li><h3>Papeterie Stock</h3></li>
+            <li>
+                <div class="home">
+                    <a th:href="@{/Dashboard}">Home</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="container">
+    <h2>You have successfully registered This Papetery Stock</h2>
+</div>
+</body>
+</html>
