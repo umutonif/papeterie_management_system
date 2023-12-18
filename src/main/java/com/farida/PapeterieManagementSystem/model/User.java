@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "_user")
+@Table(name = "user")
 public class User {
 
     @Id
